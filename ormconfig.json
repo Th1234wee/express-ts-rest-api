@@ -1,0 +1,10 @@
+{
+    "type" : "mysql",
+    "host" : "localhost",
+    "username" : "root",
+    "password" : "",
+    "port"     : 3307,
+    "database" : "express-db",
+    "entities"   : ["src/entities/*.entity{.ts,.js}"],
+    "synchronize" : true
+}

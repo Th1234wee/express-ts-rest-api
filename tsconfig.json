@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",                   // Compile to ES5 for compatibility
+    "lib": ["dom", "dom.iterable", "esnext"],  // Standard libraries
+    "allowJs": true,                   // Allow compiling plain JavaScript files
+    "skipLibCheck": true,               // Skip type checking for external libraries
+    "esModuleInterop": true,            // Enable ES module interop
+    "allowSyntheticDefaultImports": true,  // Allow synthetic default imports
+    "strict": true,                     // Enable strict mode for type safety
+    "forceConsistentCasingInFileNames": true,  // Enforce consistent file naming case
+    "module": "commonjs",                // Use CommonJS modules
+    "outDir": "dist",                   // Output compiled files to dist folder
+    "rootDir": "src",                   // Treat src folder as project root
+    "sourceMap": true ,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false               // Generate source maps
+  },
+  "include": ["src"]                 // Include the src folder for compilation
+}
