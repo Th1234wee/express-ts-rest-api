@@ -38,5 +38,44 @@ router.get('/user/getAllData' , async (request : Request , response:Response) =>
         })
     }
 })
+router.get('/user/findOneUser/:id', async(request : Request , response : Response) =>{
+    const foundUser = parseInt(request.params.id);
+    const userRepository = getRepository(User);
+    const user = await userRepository.findOne({
+      where :  {id : foundUser}   
+    })
+    return response.status(200).json({
+        data : user
+    })
+    
+})
+router.put('/user/editUser/:id', async (request : Request , response : Response) => {
+    const foundUser = parseInt(request.params.id);
+    const { email , password} = request.body;
+    const userRepository = getRepository(User);
+    const user = await  userRepository.findOne({
+        where : { id : foundUser}
+    });
+    const newUser = await userRepository.create({
+        ...user,
+        // name : name,
+        email : email,
+        password : password
+    })
+    await userRepository.save(newUser);
+    response.status(200).json({
+        data : newUser
+    })
+})
+router.delete('/user/removeOneUser/:id',async (request : Request , response : Response) =>{
+    const foundUser = parseInt(request.params.id);
+    const userRepository = getRepository(User);
+    await userRepository.delete(foundUser);
+    response.json({
+        message : "Success"
+    })
+} )
 
+
+//dynamic route
 export default router;

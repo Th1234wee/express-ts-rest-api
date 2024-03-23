@@ -41,6 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var express_1 = __importDefault(require("express"));
+var user_routes_1 = __importDefault(require("./routes/user/user.routes"));
 //connect to typeorm
 function connectionDB() {
     return __awaiter(this, void 0, void 0, function () {
@@ -66,8 +67,13 @@ function connectionDB() {
 //create server 
 connectionDB()
     .then(function () {
+    //create server
     var app = (0, express_1.default)(); //create express server
     var port = 3000;
+    //middleware for work with json
+    app.use(express_1.default.json());
+    //register route into main file(index.ts)
+    app.use('/api', user_routes_1.default);
     app.listen(port, function () { return console.log("Server listen at " + port); });
 })
     .catch(function () {

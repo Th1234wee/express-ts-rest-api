@@ -3,8 +3,8 @@
     "host" : "localhost",
     "username" : "root",
     "password" : "",
-    "port"     : 3307,
-    "database" : "express-db",
+    "port"     : 3308,
+    "database" : "express",
     "entities"   : ["src/entities/*.entity{.ts,.js}"],
     "synchronize" : true
 }
